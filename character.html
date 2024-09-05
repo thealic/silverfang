@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SilverFang - Demo</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script src="./js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+<script>
+
+function switchHeightUnits(item) {
+  document.getElementById("playerHeightUnit").innerHTML = item.innerHTML;
+}
+
+function switchWeightUnits(item) {
+  document.getElementById("playerWeightUnit").innerHTML = item.innerHTML;
+}
+
+/*
+function displayProfileImage() {
+  file = await document.getElementById("profilePictureInput").files[0]
+  let newImg = new Image();
+
+  newImg.src = file;
+  newImg.src = URL.createObjectURL(file);
+
+  document.getElementById("profilePicture").appendChild(newImg);
+}
+*/
+
+
+
+//bytes = await document.getElementById("profilePictureInput").files[0].bytes()
+
+</script>
+
+<div class="container text-center">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h1 class="display-1">Character Sheet</h1>
+    </div>
+    <div class="col-6">
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-6">
+
+      <h2>Skills</h2>
+
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th class="col">Favourite Use</th>
+            <th class="col">Marks</th>
+            <th class="col">Skillz</th>
+            <th class="col">Dice from Marks</th>
+            <th class="col">Dice from Species</th>
+            <th class="col">Dice from Career</th>
+          </tr>
+          
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Academics </td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Brawling  </td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Climbing</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Craft   </td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Deceit   </td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Digging  </td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Dodge </td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Gossip   </td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Inquiry  </td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Jumping</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Leadership </td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Mêlée Combat</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Negotiation</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Observation</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Presence  </td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Ranged Combat</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Riding   </td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Searching </td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Stealth</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Supernatural</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Swimming</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Tactics  </td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Throwing </td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Vehicles  </td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Weather Sense</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Endurance</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div> <!--End Quad 1-->
+ 
+    <div class="col-6">
+      <div class="input-group mb-3">
+        <span class="input-group-text">Character Name:</span>
+        <input type="text" class="form-control" placeholder="Character name">
+
+        <div class="container ">
+          <div class="row text-start">
+            <div class="col-6">
+
+              <div id="profilePicture">
+              </div>
+
+              <div class="form-text" id="basic-addon4">Select a profile picture</div>
+              <div class="input-group mb-3">
+                <input type="file" class="form-control" id="profilePictureInput"placeholder="Select profile picture">
+              </div>
+
+              <script>
+                document.getElementById('profilePictureInput').onchange = async function() {
+                  file = await document.getElementById("profilePictureInput").files[0];
+                  let newImg = new Image();
+
+                  newImg.src = file;
+                  newImg.classList.add("img-fluid");
+                  newImg.src = URL.createObjectURL(file);
+
+                  document.getElementById("profilePicture").innerHTML = "";
+                  document.getElementById("profilePicture").appendChild(newImg);
+                  console.log('boop');
+                };
+              </script>
+
+              <div class="input-group mb-3">
+                <button class="btn btn-outline-secondary" type="button">Species</button>
+                <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+                  <option selected>Choose Species</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+                <span class="input-group-text">D?</span>
+              </div>
+
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text">Habitat:</span>
+                <input disabled type="text" class="form-control" placeholder="choose a species">
+              </div>
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text">Senses:</span>
+                <input disabled type="text" class="form-control" placeholder="choose a species">
+              </div>
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text">Diet:</span>
+                <input disabled type="text" class="form-control" placeholder="choose a species">
+              </div>
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text">Weapons:</span>
+                <input disabled type="text" class="form-control" placeholder="choose a species">
+              </div>
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text">Cycle:</span>
+                <input disabled type="text" class="form-control" placeholder="choose a species">
+              </div>
+
+
+            </div>
+
+            <div class="col-6">
+              <div class="input-group mb-3">
+                <span class="input-group-text">D?</span>
+                <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+                  <option selected>Choose Career</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+                <button class="btn btn-outline-secondary" type="button">Career</button>
+              </div>
+
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text">Age:</span>
+                <input type="text" class="form-control" placeholder="Enter age">
+                <span class="input-group-text">Gender:</span>
+                <input type="text" class="form-control" placeholder="Enter gender">
+              </div>
+
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text">Pronouns:</span>
+                <input type="text" class="form-control" value="they/them">
+              </div>
+
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text">Height:</span>
+                <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                <button id="playerHeightUnit" class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" >Units</button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li><a class="dropdown-item" href="#" onclick="switchHeightUnits(this)">Centimeters</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="switchHeightUnits(this)">Meters</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="switchHeightUnits(this)">Inches</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="switchHeightUnits(this)">Feet</a></li>
+                </ul>
+              </div>
+
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text">Weight:</span>
+                <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                <button id="playerWeightUnit" class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" >Units</button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li><a class="dropdown-item" href="#" onclick="switchWeightUnits(this)">Grams</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="switchWeightUnits(this)">Kilograms</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="switchWeightUnits(this)">Pounds</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="switchWeightUnits(this)">Stone</a></li>
+                </ul>
+              </div>
+
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text">Eyes Colour:</span>
+                <input type="color" class="form-control form-control-color" id="myColor" value="#CCCCCC" title="Choose a color">
+                <span class="input-group-text">Pelt Colour:</span>
+                <input type="color" class="form-control form-control-color" id="myColor" value="#CCCCCC" title="Choose a color">
+                <span class="input-group-text">Secondary Pelt Colour:</span>
+                <input type="color" class="form-control form-control-color" id="myColor" value="#CCCCCC" title="Choose a color">
+              </div>
+
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text">Characteristics</span>
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+              </div>
+
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text">Motto</span>
+                <textarea class="form-control"></textarea>
+              </div>
+
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Goal 1</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+              </div>
+
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Goal 2</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+              </div>
+
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Goal 3</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+              </div>
+
+
+            </div>
+
+            <h2>Battle Stats</h2>
+            <!--TODO-->
+
+        </div>
+      </div>
+    </div>
+  </div> <!--Row 1 end-->
+
+
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h2>Gifts</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Gift Name</th>
+            <th scope="col">Brief</th>
+            <th scope="col">Tags</th>
+            <th scope="col">Used State</th>
+            <th scope="col">Refresh?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Personality</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Languages</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Local Knowledge</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Combat Save</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h2>Experience</h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-9 align-self-start">
+            <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+              <button type="button" class="btn btn-outline-primary"></button>
+              <button type="button" class="btn btn-outline-primary"></button>
+              <button type="button" class="btn btn-outline-primary"></button>
+            </div>
+          </div>
+        </div>
+        <div class="col-3 align-self-center">
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="col-6">
+    </div> 
+  </div> <!--Row 2 end-- >
+
+
+</div>
+
+<script>
+
+</script>
+
+</body>
+</html>
+
