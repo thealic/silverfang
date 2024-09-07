@@ -12,31 +12,27 @@
 
 <script>
 
-function switchHeightUnits(item) {
-  document.getElementById("playerHeightUnit").innerHTML = item.innerHTML;
+// Update a <select>'s inner HTML with an another item's innner html
+function updateSelect(selectId, item) {
+  document.getElementById(selectId).innerHTML = item.innerHTML;
 }
-
-function switchWeightUnits(item) {
-  document.getElementById("playerWeightUnit").innerHTML = item.innerHTML;
-}
-
-/*
-function displayProfileImage() {
-  file = await document.getElementById("profilePictureInput").files[0]
-  let newImg = new Image();
-
-  newImg.src = file;
-  newImg.src = URL.createObjectURL(file);
-
-  document.getElementById("profilePicture").appendChild(newImg);
-}
-*/
-
-
-
-//bytes = await document.getElementById("profilePictureInput").files[0].bytes()
 
 </script>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <hr>
+      <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Character Sheet</li>
+        </ol>
+      </nav>
+      <hr>
+    </div>
+  </div>
+</div>
 
 <div class="container text-center">
   <div class="row justify-content-center">
@@ -274,12 +270,223 @@ function displayProfileImage() {
           </tr>
         </tbody>
       </table>
-    </div> <!--End Quad 1-->
+      <h2>Gifts</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Gift Name</th>
+            <th scope="col">Brief</th>
+            <th scope="col">Tags</th>
+            <th scope="col">Used State</th>
+            <th scope="col">Refresh?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Personality</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Languages</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Local Knowledge</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Combat Save</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="row text-start">
+        <div class="col-4">
+          <h2>Experience</h2>
+          <hr>
+          <p>Spend 4 to buy +1 Skill Mark. Spend 10 to buy a new Gift</p>
+        </div>
+        <div class="col-8 align-self-start">
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+          <span class="badge text-bg-secondary">*</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <h2>Money</h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Orichalks</span>
+          <input type="text" class="form-control">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Denarii</span>
+          <input type="text" class="form-control"> 
+          <span class="input-group-text" id="inputGroup-sizing-sm">Quincunx</span>
+          <input type="text" class="form-control"> 
+          <span class="input-group-text" id="inputGroup-sizing-sm">Aureals</span>
+          <input type="text" class="form-control"> 
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="row">
+        <div class="col-12">
+          <h2>Inventory</h2>
+        </div>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th style="width: 150px;" scope="col">Item Name</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    </div> <!--End Half 1-->
+
  
     <div class="col-6">
+
       <div class="input-group mb-3">
         <span class="input-group-text">Character Name:</span>
         <input type="text" class="form-control" placeholder="Character name">
+      </div>
+
+      <div class="input-group mb-3">
+        <button class="btn btn-outline-secondary" type="button">Species Dice</button>
+        <select class="form-select" id="traitDiceSpecies">
+          <option selected>Choose</option>
+          <option value="1">D4</option>
+          <option value="2">D6</option>
+          <option value="3">D8</option>
+          <option value="3">D10</option>
+          <option value="3">D12</option>
+        </select>
+
+        <button class="btn btn-outline-secondary" type="button">Career Dice</button>
+        <select class="form-select" id="traitDiceSpecies">
+          <option selected>Choose</option>
+          <option value="1">D4</option>
+          <option value="2">D6</option>
+          <option value="3">D8</option>
+          <option value="3">D10</option>
+          <option value="3">D12</option>
+        </select>
+
+        <button class="btn btn-outline-secondary" type="button">Body Dice</button>
+        <select class="form-select" id="traitDiceSpecies">
+          <option selected>Choose</option>
+          <option value="1">D4</option>
+          <option value="2">D6</option>
+          <option value="3">D8</option>
+          <option value="3">D10</option>
+          <option value="3">D12</option>
+        </select>
+
+      </div>
+
+      <div class="input-group mb-3">
+        <button class="btn btn-outline-secondary" type="button">Speed Dice</button>
+        <select class="form-select" id="traitDiceSpecies">
+          <option selected>Choose</option>
+          <option value="1">D4</option>
+          <option value="2">D6</option>
+          <option value="3">D8</option>
+          <option value="3">D10</option>
+          <option value="3">D12</option>
+        </select>
+
+        <button class="btn btn-outline-secondary" type="button">Mind Dice</button>
+        <select class="form-select" id="traitDiceSpecies">
+          <option selected>Choose</option>
+          <option value="1">D4</option>
+          <option value="2">D6</option>
+          <option value="3">D8</option>
+          <option value="3">D10</option>
+          <option value="3">D12</option>
+        </select>
+
+        <button class="btn btn-outline-secondary" type="button">Will Dice</button>
+        <select class="form-select" id="traitDiceSpecies">
+          <option selected>Choose</option>
+          <option value="1">D4</option>
+          <option value="2">D6</option>
+          <option value="3">D8</option>
+          <option value="3">D10</option>
+          <option value="3">D12</option>
+        </select>
+
+      </div>
 
         <div class="container ">
           <div class="row text-start">
@@ -372,10 +579,10 @@ function displayProfileImage() {
                 <input type="text" class="form-control" aria-label="Text input with dropdown button">
                 <button id="playerHeightUnit" class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" >Units</button>
                 <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="#" onclick="switchHeightUnits(this)">Centimeters</a></li>
-                  <li><a class="dropdown-item" href="#" onclick="switchHeightUnits(this)">Meters</a></li>
-                  <li><a class="dropdown-item" href="#" onclick="switchHeightUnits(this)">Inches</a></li>
-                  <li><a class="dropdown-item" href="#" onclick="switchHeightUnits(this)">Feet</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="updateSelect('playerHeightUnit', this)">Centimeters</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="updateSelect('playerHeightUnit', this)">Meters</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="updateSelect('playerHeightUnit', this)">Inches</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="updateSelect('playerHeightUnit', this)">Feet</a></li>
                 </ul>
               </div>
 
@@ -384,10 +591,10 @@ function displayProfileImage() {
                 <input type="text" class="form-control" aria-label="Text input with dropdown button">
                 <button id="playerWeightUnit" class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" >Units</button>
                 <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="#" onclick="switchWeightUnits(this)">Grams</a></li>
-                  <li><a class="dropdown-item" href="#" onclick="switchWeightUnits(this)">Kilograms</a></li>
-                  <li><a class="dropdown-item" href="#" onclick="switchWeightUnits(this)">Pounds</a></li>
-                  <li><a class="dropdown-item" href="#" onclick="switchWeightUnits(this)">Stone</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="updateSelect('playerWeightUnit', this)">Grams</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="updateSelect('playerWeightUnit', this)">Kilograms</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="updateSelect('playerWeightUnit', this)">Pounds</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="updateSelect('playerWeightUnit', this)">Stone</a></li>
                 </ul>
               </div>
 
@@ -412,105 +619,350 @@ function displayProfileImage() {
 
               <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Goal 1</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                <input type="text" class="form-control"> 
               </div>
 
               <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Goal 2</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                <input type="text" class="form-control">
               </div>
 
               <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Goal 3</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                <input type="text" class="form-control"> 
               </div>
 
 
             </div>
 
-            <h2>Battle Stats</h2>
-            <!--TODO-->
 
+            <div class="container ">
+
+              <div class="row text-start">
+                <hr>
+                <div class="col-4">
+                  <h2>Battle</h2>
+                </div>
+
+                <div class="col-8">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Initiative</span>
+                    <input disabled type="text" class="form-control">
+                    <button disabled class="btn btn-outline-secondary" type="button">Speed &amp; Mind Dice</button>
+                  </div>
+                </div>
+              </div>
+
+              <div id="battleMovementRow0" class="row text-start">
+                <hr>
+                <div class="col-3">
+                  <h4>Movement</h4>
+                </div>
+                <div class="col-9">
+                  <hr>
+                </div>
+              </div>
+
+              <div id="battleMovementRow1" class="row text-start">
+                <div class="col-4">
+                  <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text">Stride</span>
+                    <input type="text" class="form-control"value="1">
+                    <button disabled class="btn btn-outline-secondary" type="button">(1)</button>
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text">Dash</span>
+                    <input disabled type="text" class="form-control"value="0">
+                    <button disabled class="btn btn-outline-secondary" type="button"><sup>1</sup>&frasl;<sub>2</sub> Max Speed, +1 if Body &gt; Speed </button>
+                  </div>
+                </div>
+              </div>
+
+              <div id="battleMovementRow2" class="row text-start">
+                <div class="col-4">
+                  <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text">Sprint</span>
+                    <input disabled type="text" class="form-control" value="0">
+                    <button disabled class="btn btn-outline-secondary" type="button">Speed die</button>
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text">Run</span>
+                    <input disabled type="text" class="form-control"value="0">
+                    <button disabled class="btn btn-outline-secondary" type="button">(Max Body + Max Speed + Dash)</button>
+                  </div>
+                </div>
+              </div>
+
+              <div id="battleAttackRow0" class="row text-start">
+                <hr>
+                <div class="col-2">
+                  <h4>Attack</h4>
+                </div>
+                <div class="col-10">
+                  <hr>
+                </div>
+              </div>
+
+              <div id="battleAttackRow1" class="row text-start">
+                <div class="col-12">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Attack</th>
+                        <th>Attack Dice</th>
+                        <th>Effect</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><button class="btn btn-secondary"type="button">+</button></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div id="battleDefenceRow0" class="row text-start">
+                <hr>
+                <div class="col-3">
+                  <h4>Defence</h4>
+                </div>
+                <div class="col-9">
+                  <hr>
+                </div>
+              </div>
+
+              <div id="battleDefenceRow1" class="row text-start">
+                <div class="col-12">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Defence</th>
+                        <th>Defence Dice</th>
+                        <th>Effect</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Speed &amp; Dodge Dice</td>
+                        <td>.</td>
+                        <td>Dodge</td>
+                      </tr>
+                      <tr>
+                        <td><button class="btn btn-secondary"type="button">+</button></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+              <div id="battleDefenceRow2" class="row text-start">
+                <div class="col-6">
+                  <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text">Soak</span>
+                    <input disabled type="text" class="form-control"value="0">
+                    <button disabled class="btn btn-outline-secondary" type="button">(Body dice)</button>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text">Armour</span>
+                    <input disabled type="text" class="form-control"value="0">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div id="battleModifiersRow0" class="row text-start">
+              <hr>
+              <div class="col-3">
+                <h4>Modifiers</h4>
+              </div>
+              <div class="col-9">
+                <hr>
+              </div>
+            </div>
+
+            <div id="battleModifiersRow1" class="row text-start">
+              <div class="col-12">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Effect</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><button class="btn btn-secondary"type="button">+</button></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div id="battleStatusEffectsRow0" class="row text-start">
+              <hr>
+              <div class="col-6">
+                <h4>Damage &amp; Other Status</h4>
+              </div>
+              <div class="col-6">
+                <hr>
+              </div>
+            </div>
+
+            <div id="battleStatusEffectsRow1" class="row text-start">
+              <table class="table">
+                <tr>
+                  <td style="width: 80px">any hit =</td>
+                  <td>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input pull-right" id="hit">
+                      <label class="form-check-label text-info" for="hit"><b>Reeling</b> (penalty d8; no counters)</label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input pull-right" id="hit">
+                      <label class="form-check-label" for="burdened"><b>Burdened</b> (Dash is zero, limit of d8 to # skills)</label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width: 80px">1 hit =</td>
+                  <td>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input pull-right" id="hit">
+                      <label class="form-check-label text-warning-emphasis" for="hit"><b>Hurt</b> (+1 damage)</label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input pull-right" id="hit">
+                      <label class="form-check-label" for="burdened"><b>Over-Burdened</b> (burdened, can't run, disadvantaged)</label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width: 80px">2 hits =</td>
+                  <td>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input pull-right" id="hit">
+                      <label class="form-check-label text-warning" for="hit"><b>Afraid</b> (Cannot attack or rally)</label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input pull-right" id="hit">
+                      <label class="form-check-label" for="burdened"><b>Kockdown</b> (Disadvantaged, can't retreat)</label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width: 80px">3 hits =</td>
+                  <td>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input pull-right" id="hit">
+                      <label class="form-check-label text-danger-emphasis" for="hit"><b>Hurt</b> (Cannot attack or rally)</label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input pull-right" id="hit">
+                      <label class="form-check-label" for="burdened"><b>Unconscious</b> (Helpless)</label>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+
+              <div class="col-3">
+                <p>Healing quota</p>
+              </div>
+              <div class="col-9">
+                <div class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                  <div class="progress-bar bg-danger" style="width: 90%"></div>
+                </div>
+              </div>
+
+              <table class="table">
+                <tr>
+                  <td style="width: 80px">4 hits =</td>
+                  <td>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input pull-right" id="hit">
+                      <label class="form-check-label text-danger" for="hit"><b>Dying</b> (get first aid!)</label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input pull-right" id="hit">
+                      <label class="form-check-label" for="burdened"><b>Sick</b> (reeling causes knockdown)</label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width: 80px">5 hits =</td>
+                  <td>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input pull-right" id="hit">
+                      <label class="form-check-label" for="hit"><b>Dead</b> (beyond mortal help)</label>
+                    </div>
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width: 80px">6 hits =</td>
+                  <td>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input pull-right" id="hit">
+                      <label class="form-check-label" for="hit"><b>Overkilled</b> (allies become afraid)</label>
+                    </div>
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+              </table>
+
+              <div class="col-3">
+                <p>Sick healing quota</p>
+              </div>
+              <div class="col-9">
+                <div class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                  <div class="progress-bar bg-info" style="width: 90%"></div>
+                </div>
+              </div>
+
+            </div>
         </div>
       </div>
     </div>
   </div> <!--Row 1 end-->
-
-
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <h2>Gifts</h2>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Gift Name</th>
-            <th scope="col">Brief</th>
-            <th scope="col">Tags</th>
-            <th scope="col">Used State</th>
-            <th scope="col">Refresh?</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Personality</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Languages</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Local Knowledge</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Combat Save</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-      
-      <h2>Experience</h2>
-      <div class="container">
-        <div class="row">
-          <div class="col-9 align-self-start">
-            <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-              <button type="button" class="btn btn-outline-primary"></button>
-              <button type="button" class="btn btn-outline-primary"></button>
-              <button type="button" class="btn btn-outline-primary"></button>
-            </div>
-          </div>
-        </div>
-        <div class="col-3 align-self-center">
-
-        </div>
-      </div>
-
-    </div>
-
-
-    <div class="col-6">
-    </div> 
-  </div> <!--Row 2 end-- >
-
-
 </div>
 
-<script>
-
-</script>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <hr>
+      <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Character Sheet</li>
+        </ol>
+      </nav>
+      <hr>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
