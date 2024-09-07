@@ -10,11 +10,60 @@
 
 <body>
 
-<script>
+<script src="data/species.json"></script>
 
+<script>
 // Update a <select>'s inner HTML with an another item's innner html
+
+var speciesSkills = [];
+
 function updateSelect(selectId, item) {
   document.getElementById(selectId).innerHTML = item.innerHTML;
+}
+
+function addOptionsFromList(selectId, list) {
+  for (ii = 0; ii < list.length; ii++) {
+    let option = document.createElement("option");
+    option.text = list[ii].name;
+    document.getElementById(selectId).appendChild(option)
+  }
+}
+
+function setSpecies(name) {
+  let speciesDice = document.getElementById("selectTraitSpeciesDice").value;
+  if( speciesDice == "Choose") {
+    alert("You must have a species dice set");
+    document.getElementById("selectSpecies").value = "Choose species";
+    return;
+  } 
+
+  for(ii = 0; ii < speciesSkills.length; ii++) {
+    idString = "cell" + speciesSkills[ii] + "Species";
+    document.getElementById(idString).innerHTML = "";
+  }
+
+  speciesSkills = []
+
+  //TODO: Rewrite this to be an interator over the table. This will remove the
+  // need to track state, it will also solve the multi-word skill name issue.
+
+  for (ii = 0; ii < species.length; ii++) {
+    cur = species[ii];
+    if(cur.name == name) {
+      document.getElementById("inputHabitat").placeholder = cur.habitat;
+      document.getElementById("inputSenses").placeholder = cur.senses;
+      document.getElementById("inputDiet").placeholder = cur.diet;
+      document.getElementById("inputWeapons").placeholder = cur.weapons;
+      document.getElementById("inputCycle").placeholder = cur.cycle;
+
+      for(jj = 0; jj < cur.skills.length; jj++) {
+        speciesSkills.push(cur.skills[jj]);
+        idString = "cell" + cur.skills[jj] + "Species";
+        document.getElementById(idString).innerHTML = speciesDice;
+      }
+      break;
+    }
+  }
 }
 
 </script>
@@ -65,7 +114,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Academics </td>
             <td></td>
-            <td></td>
+            <td id="cellAcademicsSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -73,7 +122,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Brawling  </td>
             <td></td>
-            <td></td>
+            <td id="cellBrawlingSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -81,7 +130,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Climbing</td>
             <td></td>
-            <td></td>
+            <td id="cellClimbingSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -89,7 +138,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Craft   </td>
             <td></td>
-            <td></td>
+            <td id="cellCraftSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -97,7 +146,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Deceit   </td>
             <td></td>
-            <td></td>
+            <td id="cellDeceitSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -105,7 +154,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Digging  </td>
             <td></td>
-            <td></td>
+            <td id="cellDiggingSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -113,7 +162,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Dodge </td>
             <td></td>
-            <td></td>
+            <td id="cellDodgeSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -121,7 +170,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Gossip   </td>
             <td></td>
-            <td></td>
+            <td id="cellGossipSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -129,7 +178,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Inquiry  </td>
             <td></td>
-            <td></td>
+            <td id="cellInquirySpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -137,7 +186,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Jumping</td>
             <td></td>
-            <td></td>
+            <td id="cellJumpingSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -145,7 +194,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Leadership </td>
             <td></td>
-            <td></td>
+            <td id="cellLeadershipSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -153,7 +202,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Mêlée Combat</td>
             <td></td>
-            <td></td>
+            <td id="cellMeleeSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -161,7 +210,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Negotiation</td>
             <td></td>
-            <td></td>
+            <td id="cellNegotiationSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -169,7 +218,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Observation</td>
             <td></td>
-            <td></td>
+            <td id="cellObservationSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -177,7 +226,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Presence  </td>
             <td></td>
-            <td></td>
+            <td id="cellPresenceSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -185,7 +234,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Ranged Combat</td>
             <td></td>
-            <td></td>
+            <td id="cellRangedSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -193,7 +242,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Riding   </td>
             <td></td>
-            <td></td>
+            <td id="cellRidingSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -201,7 +250,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Searching </td>
             <td></td>
-            <td></td>
+            <td id="cellSearchingSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -209,7 +258,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Stealth</td>
             <td></td>
-            <td></td>
+            <td id="cellStealthSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -217,7 +266,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Supernatural</td>
             <td></td>
-            <td></td>
+            <td id="cellSupernaturalSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -225,7 +274,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Swimming</td>
             <td></td>
-            <td></td>
+            <td id="cellSwimmingSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -233,7 +282,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Tactics  </td>
             <td></td>
-            <td></td>
+            <td id="cellTacticsSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -241,7 +290,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Throwing </td>
             <td></td>
-            <td></td>
+            <td id="cellThrowingSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -249,7 +298,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Vehicles  </td>
             <td></td>
-            <td></td>
+            <td id="cellVehiclesSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -257,7 +306,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Weather Sense</td>
             <td></td>
-            <td></td>
+            <td id="cellWeatherSpecies"></td>
             <td></td>
           </tr>
           <tr>
@@ -265,7 +314,7 @@ function updateSelect(selectId, item) {
             <td></td>
             <td>Endurance</td>
             <td></td>
-            <td></td>
+            <td id="cellEnduranceSpecies"></td>
             <td></td>
           </tr>
         </tbody>
@@ -424,13 +473,13 @@ function updateSelect(selectId, item) {
 
       <div class="input-group mb-3">
         <button class="btn btn-outline-secondary" type="button">Species Dice</button>
-        <select class="form-select" id="traitDiceSpecies">
+        <select class="form-select" id="selectTraitSpeciesDice">
           <option selected>Choose</option>
-          <option value="1">D4</option>
-          <option value="2">D6</option>
-          <option value="3">D8</option>
-          <option value="3">D10</option>
-          <option value="3">D12</option>
+          <option value="d4">D4</option>
+          <option value="d6">D6</option>
+          <option value="d8">D8</option>
+          <option value="d10">D10</option>
+          <option value="d12">D12</option>
         </select>
 
         <button class="btn btn-outline-secondary" type="button">Career Dice</button>
@@ -517,49 +566,42 @@ function updateSelect(selectId, item) {
 
               <div class="input-group mb-3">
                 <button class="btn btn-outline-secondary" type="button">Species</button>
-                <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+                <select class="form-select" id="selectSpecies" onchange="setSpecies(this.value)">
                   <option selected>Choose Species</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
                 </select>
-                <span class="input-group-text">D?</span>
               </div>
 
               <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text">Habitat:</span>
-                <input disabled type="text" class="form-control" placeholder="choose a species">
+                <span id="spanHabitat" class="input-group-text">Habitat:</span>
+                <input id="inputHabitat"disabled type="text" class="form-control" placeholder="choose a species">
               </div>
               <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text">Senses:</span>
-                <input disabled type="text" class="form-control" placeholder="choose a species">
+                <span id="spanSenses" class="input-group-text">Senses:</span>
+                <input id="inputSenses" disabled type="text" class="form-control" placeholder="choose a species">
               </div>
               <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text">Diet:</span>
-                <input disabled type="text" class="form-control" placeholder="choose a species">
+                <span id="spanDiet" class="input-group-text">Diet:</span>
+                <input id="inputDiet" disabled type="text" class="form-control" placeholder="choose a species">
               </div>
               <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text">Weapons:</span>
-                <input disabled type="text" class="form-control" placeholder="choose a species">
+                <span id="spanWeapons" class="input-group-text">Weapons:</span>
+                <input id="inputWeapons" disabled type="text" class="form-control" placeholder="choose a species">
               </div>
               <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text">Cycle:</span>
-                <input disabled type="text" class="form-control" placeholder="choose a species">
+                <span id="spanCycle" class="input-group-text">Cycle:</span>
+                <input id="inputCycle" disabled type="text" class="form-control" placeholder="choose a species">
               </div>
-
-
             </div>
 
             <div class="col-6">
               <div class="input-group mb-3">
-                <span class="input-group-text">D?</span>
+                <button class="btn btn-outline-secondary" type="button">Career</button>
                 <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
                   <option selected>Choose Career</option>
                   <option value="1">One</option>
                   <option value="2">Two</option>
                   <option value="3">Three</option>
                 </select>
-                <button class="btn btn-outline-secondary" type="button">Career</button>
               </div>
 
               <div class="input-group input-group-sm mb-3">
@@ -963,6 +1005,12 @@ function updateSelect(selectId, item) {
     </div>
   </div>
 </div>
+
+<script>
+
+addOptionsFromList("selectSpecies", species);
+
+</script>
 
 </body>
 </html>

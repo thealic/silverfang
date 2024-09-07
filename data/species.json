@@ -1,0 +1,46 @@
+species = [
+    {
+        "name": "Mouse",
+        "description": "TODO: Mouse Description",
+        "habitat": "Plains",
+        "diet": "Herbivore",
+        "cycle":"Night",
+        "senses": [ "Listen", "Smell" ],
+        "weapons": [ "Claws", "Teeth"],
+        "skills": ["Climbing", "Digging", "Stealth"],
+        "gifts": ["Contortionist", "Coward", "Keen Ears"]
+    },
+    {
+        "name": "Rabbit",
+        "description": "TODO: Rabbit Description",
+        "habitat": "Plains",
+        "diet": "Herbivore",
+        "cycle":"Twilight",
+        "senses": [ "Listen"],
+        "weapons": [ "Claws", "Kick", "Teeth"],
+        "skills": ["Jumping", "Digging", "Stealth"],
+        "gifts": ["Fast Jumper", "Coward", "Keen Ears"]
+    },
+    {
+        "name": "Otter",
+        "description": "TODO: Otter Description",
+        "habitat": "Plains",
+        "diet": "Herbivore",
+        "cycle":"Night",
+        "senses": [ "Listen", "Smell" ],
+        "weapons": [ "Claws", "Teeth"],
+        "skills": ["Climbing", "Digging", "Stealth"],
+        "gifts": ["Contortionist", "Coward", "Keen Ears"]
+    },
+    {
+        "name": "Raven",
+        "description": "TODO: Raven Description",
+        "habitat": "Plains",
+        "diet": "Omnivore",
+        "cycle":"Day",
+        "senses": [ "Spot"],
+        "weapons": [ "Claws", "Beak"],
+        "skills": ["Searching", "Supernatural", "Weather Sense"],
+        "gifts": ["Flight", "Increased Trait: Speed", "Survival"]
+    }
+]
