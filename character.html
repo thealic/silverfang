@@ -13,10 +13,6 @@
 <script src="data/species.json"></script>
 
 <script>
-// Update a <select>'s inner HTML with an another item's innner html
-
-var speciesSkills = [];
-
 function updateSelect(selectId, item) {
   document.getElementById(selectId).innerHTML = item.innerHTML;
 }
@@ -30,6 +26,8 @@ function addOptionsFromList(selectId, list) {
 }
 
 function setSpecies(name) {
+  clearSkillsTable()
+
   let speciesDice = document.getElementById("selectTraitSpeciesDice").value;
   if( speciesDice == "Choose") {
     alert("You must have a species dice set");
@@ -37,15 +35,6 @@ function setSpecies(name) {
     return;
   } 
 
-  for(ii = 0; ii < speciesSkills.length; ii++) {
-    idString = "cell" + speciesSkills[ii] + "Species";
-    document.getElementById(idString).innerHTML = "";
-  }
-
-  speciesSkills = []
-
-  //TODO: Rewrite this to be an interator over the table. This will remove the
-  // need to track state, it will also solve the multi-word skill name issue.
 
   for (ii = 0; ii < species.length; ii++) {
     cur = species[ii];
@@ -57,12 +46,34 @@ function setSpecies(name) {
       document.getElementById("inputCycle").placeholder = cur.cycle;
 
       for(jj = 0; jj < cur.skills.length; jj++) {
-        speciesSkills.push(cur.skills[jj]);
-        idString = "cell" + cur.skills[jj] + "Species";
-        document.getElementById(idString).innerHTML = speciesDice;
+        setSkillSpeciesDice(cur.skills[jj], speciesDice);
       }
-      break;
     }
+  }
+}
+
+function setSkillSpeciesDice(skill, dice) {
+  //Iterate through the skills table
+  table = document.getElementById("tableSkills")
+  skillTableRows = table.children[1].children
+
+  for(ii = 0; ii < skillTableRows.length; ii++) {
+    row = skillTableRows[ii];
+    columns = row.children;
+    if(skill == columns[2].innerHTML) {
+      columns[4].innerHTML = dice;
+    }
+  }
+}
+
+function clearSkillsTable() {
+  table = document.getElementById("tableSkills")
+  skillTableRows = table.children[1].children
+
+  for(ii = 0; ii < skillTableRows.length; ii++) {
+    row = skillTableRows[ii];
+    columns = row.children;
+    columns[4].innerHTML = "";
   }
 }
 
@@ -96,7 +107,7 @@ function setSpecies(name) {
 
       <h2>Skills</h2>
 
-      <table class="table table-hover table-bordered">
+      <table id="tableSkills" class="table table-hover table-bordered">
         <thead>
           <tr>
             <th class="col">Favourite Use</th>
@@ -112,7 +123,7 @@ function setSpecies(name) {
           <tr>
             <td></td>
             <td></td>
-            <td>Academics </td>
+            <td>Academics</td>
             <td></td>
             <td id="cellAcademicsSpecies"></td>
             <td></td>
@@ -120,7 +131,7 @@ function setSpecies(name) {
           <tr>
             <td></td>
             <td></td>
-            <td>Brawling  </td>
+            <td>Brawling</td>
             <td></td>
             <td id="cellBrawlingSpecies"></td>
             <td></td>
@@ -136,7 +147,7 @@ function setSpecies(name) {
           <tr>
             <td></td>
             <td></td>
-            <td>Craft   </td>
+            <td>Craft</td>
             <td></td>
             <td id="cellCraftSpecies"></td>
             <td></td>
@@ -144,7 +155,7 @@ function setSpecies(name) {
           <tr>
             <td></td>
             <td></td>
-            <td>Deceit   </td>
+            <td>Deceit</td>
             <td></td>
             <td id="cellDeceitSpecies"></td>
             <td></td>
@@ -152,7 +163,7 @@ function setSpecies(name) {
           <tr>
             <td></td>
             <td></td>
-            <td>Digging  </td>
+            <td>Digging</td>
             <td></td>
             <td id="cellDiggingSpecies"></td>
             <td></td>
@@ -160,7 +171,7 @@ function setSpecies(name) {
           <tr>
             <td></td>
             <td></td>
-            <td>Dodge </td>
+            <td>Dodge</td>
             <td></td>
             <td id="cellDodgeSpecies"></td>
             <td></td>
@@ -168,7 +179,7 @@ function setSpecies(name) {
           <tr>
             <td></td>
             <td></td>
-            <td>Gossip   </td>
+            <td>Gossip</td>
             <td></td>
             <td id="cellGossipSpecies"></td>
             <td></td>
@@ -176,7 +187,7 @@ function setSpecies(name) {
           <tr>
             <td></td>
             <td></td>
-            <td>Inquiry  </td>
+            <td>Inquiry</td>
             <td></td>
             <td id="cellInquirySpecies"></td>
             <td></td>
@@ -192,7 +203,7 @@ function setSpecies(name) {
           <tr>
             <td></td>
             <td></td>
-            <td>Leadership </td>
+            <td>Leadership</td>
             <td></td>
             <td id="cellLeadershipSpecies"></td>
             <td></td>
@@ -200,7 +211,7 @@ function setSpecies(name) {
           <tr>
             <td></td>
             <td></td>
-            <td>Mêlée Combat</td>
+            <td>Melee Combat</td>
             <td></td>
             <td id="cellMeleeSpecies"></td>
             <td></td>
@@ -224,7 +235,7 @@ function setSpecies(name) {
           <tr>
             <td></td>
             <td></td>
-            <td>Presence  </td>
+            <td>Presence</td>
             <td></td>
             <td id="cellPresenceSpecies"></td>
             <td></td>
@@ -240,7 +251,7 @@ function setSpecies(name) {
           <tr>
             <td></td>
             <td></td>
-            <td>Riding   </td>
+            <td>Riding</td>
             <td></td>
             <td id="cellRidingSpecies"></td>
             <td></td>
@@ -248,7 +259,7 @@ function setSpecies(name) {
           <tr>
             <td></td>
             <td></td>
-            <td>Searching </td>
+            <td>Searching</td>
             <td></td>
             <td id="cellSearchingSpecies"></td>
             <td></td>
@@ -280,7 +291,7 @@ function setSpecies(name) {
           <tr>
             <td></td>
             <td></td>
-            <td>Tactics  </td>
+            <td>Tactics</td>
             <td></td>
             <td id="cellTacticsSpecies"></td>
             <td></td>
@@ -288,7 +299,7 @@ function setSpecies(name) {
           <tr>
             <td></td>
             <td></td>
-            <td>Throwing </td>
+            <td>Throwing</td>
             <td></td>
             <td id="cellThrowingSpecies"></td>
             <td></td>
@@ -296,7 +307,7 @@ function setSpecies(name) {
           <tr>
             <td></td>
             <td></td>
-            <td>Vehicles  </td>
+            <td>Vehicles</td>
             <td></td>
             <td id="cellVehiclesSpecies"></td>
             <td></td>

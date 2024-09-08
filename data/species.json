@@ -29,7 +29,7 @@ species = [
         "cycle":"Night",
         "senses": [ "Listen", "Smell" ],
         "weapons": [ "Claws", "Teeth"],
-        "skills": ["Climbing", "Digging", "Stealth"],
+        "skills": ["Dodge", "Swimming", "Stealth"],
         "gifts": ["Contortionist", "Coward", "Keen Ears"]
     },
     {
@@ -44,3 +44,5 @@ species = [
         "gifts": ["Flight", "Increased Trait: Speed", "Survival"]
     }
 ]
+
+
