@@ -1,0 +1,44 @@
+gifts = {
+  "Fast Jumper" : {
+    "name":"Fast Jumper",
+    "description": "<p><b>Improved Action: Jump</b></p><p>For you, jumping is just an action, not a stunt. (Other characters are sent reeling after a \"Jump\" stunt</p>",
+      "tags": ["Combat", "Movement"]
+  },
+
+  "Coward" : {
+    "name":"Coward",
+    "description": "<p><b>When Afraid, You Move Faster and Dodge Better</b></p>Whenever you are Afraid or Terrified, add 1 to your Stride, add 3 to your Dash, and 9 to your Run. (Since Run is based on Dash, this will result in +12 to Run.)Also, you may claim a bonus d12 to your Dodge defense (but not to other defenses)</p><p><b>X (Respite)</b></p><p>As a Reaction, you may become Afraid for the rest of this Scene (about 5 minutes).</p>",
+      "tags": ["Combat", "Movement"]
+  },
+
+  "Keen Ears" : {
+    "name":"Keen Ears",
+    "description": "<p><b>Better Hearing</b></p><p>You have better hearing. When using Observation to hear something, you may negate the highest-showing difficulty die that opposes you.</p><p>You have better hearing. When using Observation to hear something, you may negate the highest-showing difficulty die that opposes you.</p>",
+      "tags": []
+  },
+
+  "Contortionist" : {
+    "name":"Contortionist",
+    "description": "<p><b>Action \"squeeze through tight spaces\"</b></p><p>You can fit into spaces other people of your size cannot — the general rule is that if you get your head through the opening, you can get the rest of you through too, given enough time. For really tight spaces, the Game Host may call for rolls of your Speed &amp; Mind Traits vs. your own Body Trait.</p><p><b>Retreating without moving</b></p><p>You may still Retreat without moving one pace, by contorting your body to move out of the way of the attack.</p><p>The contortionist ability allows you to claim a successful Retreat when Knocked Down, when dodging against Ranged Weapons without Cover, and when grappled.</p><p><b>Action “attack: brawling attack to break free”</b></p><p>When using the Brawling Attack “Break Free”, you may claim a bonus d12.</p><p>You can fit into spaces other people of your size cannot — the general rule is that if you get your head through the opening, you can get the rest of you through too, given enough time. For really tight spaces, the Game Host may call for rolls of your Speed &amp; Mind Traits vs. your own Body Trait.</p><p><b>Retreating without moving</b></p><p>You may still Retreat without moving one pace, by contorting your body to move out of the way of the attack.</p><p>The contortionist ability allows you to claim a successful Retreat when Knocked Down, when dodging against Ranged Weapons without Cover, and when grappled.</p><p><b>Action \"attack: brawling attack to break free\"</b></p><p>When using the Brawling Attack “Break Free”, you may claim a bonus d12.</p>", 
+    "tags": []
+  },
+
+  "Flight" : {
+    "name":"Flight",
+    "description": "TODO: Description",
+      "tags": ["Movement", "Natural"]
+  },
+
+  "Increased Trait: Speed" : {
+    "name":"Increased Trait: Speed",
+    "description": "Speed Dice is increased by 1 dice level",
+      "tags": ["Movement", "Natural"]
+  },
+
+  "Survival" : {
+    "name":"Survival",
+    "description": "<p><b>Bonus d12 to Live Off the Land</b></p><p>When foraging for food or shelter, you may claim a bonus d12.</p>",
+      "tags": ["Speciality"]
+  }
+}
+

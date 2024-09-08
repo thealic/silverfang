@@ -10,77 +10,13 @@
 
 <body>
 
+<!--Dataset Imports-->
 <script src="data/species.json"></script>
 <script src="data/careers.json"></script>
+<script src="data/gifts.json"></script>
+<script src="js/character.js"></script>
 
-<script>
-
-careersList = Object.values(careers)
-speciesList = Object.values(species)
-//merged = {...careers, ...careers};
-
-function updateSelect(selectId, item) {
-  document.getElementById(selectId).innerHTML = item.innerHTML;
-}
-
-function addOptionsFromList(selectId, list) {
-  for (ii = 0; ii < list.length; ii++) {
-    let option = document.createElement("option");
-    option.text = list[ii].name;
-    document.getElementById(selectId).appendChild(option)
-  }
-}
-
-function setSpecies(name) {
-  clearSkillsTable()
-
-  let speciesDice = document.getElementById("selectTraitSpeciesDice").value;
-  if( speciesDice == "Choose") {
-    alert("You must have a species dice set");
-    document.getElementById("selectSpecies").value = "Choose species";
-    return;
-  } 
-
-  cur = species[name];
-  console.log(cur);
-  document.getElementById("inputHabitat").placeholder = cur.habitat;
-  document.getElementById("inputSenses").placeholder = cur.senses;
-  document.getElementById("inputDiet").placeholder = cur.diet;
-  document.getElementById("inputWeapons").placeholder = cur.weapons;
-  document.getElementById("inputCycle").placeholder = cur.cycle;
-
-  for(jj = 0; jj < cur.skills.length; jj++) {
-    setSkillSpeciesDice(cur.skills[jj], speciesDice);
-  }
-}
-
-function setSkillSpeciesDice(skill, dice) {
-  //Iterate through the skills table
-  table = document.getElementById("tableSkills")
-  skillTableRows = table.children[1].children
-
-  for(ii = 0; ii < skillTableRows.length; ii++) {
-    row = skillTableRows[ii];
-    columns = row.children;
-    if(skill == columns[2].innerHTML) {
-      columns[4].innerHTML = dice;
-    }
-  }
-}
-
-function clearSkillsTable() {
-  table = document.getElementById("tableSkills")
-  skillTableRows = table.children[1].children
-
-  for(ii = 0; ii < skillTableRows.length; ii++) {
-    row = skillTableRows[ii];
-    columns = row.children;
-    columns[4].innerHTML = "";
-  }
-}
-
-</script>
-
+<!--Navbar-->
 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -95,6 +31,7 @@ function clearSkillsTable() {
     </div>
   </div>
 </div>
+<!--END navbar-->
 
 <div class="container text-center">
   <div class="row justify-content-center">
@@ -496,13 +433,13 @@ function clearSkillsTable() {
         </select>
 
         <button class="btn btn-outline-secondary" type="button">Career Dice</button>
-        <select class="form-select" id="traitDiceSpecies">
+        <select class="form-select" id="selectTraitCareerDice">
           <option selected>Choose</option>
-          <option value="1">D4</option>
-          <option value="2">D6</option>
-          <option value="3">D8</option>
-          <option value="3">D10</option>
-          <option value="3">D12</option>
+          <option value="d4">D4</option>
+          <option value="d6">D6</option>
+          <option value="d8">D8</option>
+          <option value="d10">D10</option>
+          <option value="d12">D12</option>
         </select>
 
         <button class="btn btn-outline-secondary" type="button">Body Dice</button>
@@ -609,7 +546,7 @@ function clearSkillsTable() {
             <div class="col-6">
               <div class="input-group mb-3">
                 <button class="btn btn-outline-secondary" type="button">Career</button>
-                <select class="form-select" id="selectCareer">
+                <select class="form-select" id="selectCareer" onchange="setCareer(this.value)">
                   <option selected>Choose Career</option>
                 </select>
               </div>
@@ -1016,11 +953,10 @@ function clearSkillsTable() {
   </div>
 </div>
 
+<!--Post Script-->
 <script>
-
 addOptionsFromList("selectSpecies", speciesList);
 addOptionsFromList("selectCareer", careersList);
-
 </script>
 
 </body>

@@ -3,7 +3,7 @@ careers = {
     "name": "Rake", 
     "description": "A rogue who enjoys a time, the Rake must move quickly to always be one step ahead of their creditors.",
     "alignment": "Micreant",
-    "skills": ["Dodge", "Gossip", "Negotation"],
+    "skills": ["Dodge", "Gossip", "Negotiation"],
     "gifts": ["Carousing", "Fast-Talk", "Streetwise"], 
     "trappings": ["Shortsword", "Leather Armour", "Dagger", "Hat", "Cape"]
   },
