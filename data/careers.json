@@ -1,0 +1,19 @@
+careers = {
+  "Rake": {
+    "name": "Rake", 
+    "description": "A rogue who enjoys a time, the Rake must move quickly to always be one step ahead of their creditors.",
+    "alignment": "Micreant",
+    "skills": ["Dodge", "Gossip", "Negotation"],
+    "gifts": ["Carousing", "Fast-Talk", "Streetwise"], 
+    "trappings": ["Shortsword", "Leather Armour", "Dagger", "Hat", "Cape"]
+  },
+
+  "Elementalist": {
+    "name": "Elementalist", 
+    "description": "TODO: Description",
+    "alignment": "Wizard",
+    "skills": ["Academics", "Endurance", "Searching"],
+    "gifts": ["Cartography", "Literacy", "Research"], 
+    "trappings": ["Shortsword", "Leather Armour", "Dagger", "Undecipherable Map"]
+  }
+}

@@ -11,8 +11,14 @@
 <body>
 
 <script src="data/species.json"></script>
+<script src="data/careers.json"></script>
 
 <script>
+
+careersList = Object.values(careers)
+//careersList = Array.from(Object.keys(careers));
+//merged = {...careers, ...careers};
+
 function updateSelect(selectId, item) {
   document.getElementById(selectId).innerHTML = item.innerHTML;
 }
@@ -607,11 +613,8 @@ function clearSkillsTable() {
             <div class="col-6">
               <div class="input-group mb-3">
                 <button class="btn btn-outline-secondary" type="button">Career</button>
-                <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+                <select class="form-select" id="selectCareer">
                   <option selected>Choose Career</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
                 </select>
               </div>
 
@@ -1020,6 +1023,7 @@ function clearSkillsTable() {
 <script>
 
 addOptionsFromList("selectSpecies", species);
+addOptionsFromList("selectCareer", careersList);
 
 </script>
 
