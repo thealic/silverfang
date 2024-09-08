@@ -16,7 +16,7 @@
 <script>
 
 careersList = Object.values(careers)
-//careersList = Array.from(Object.keys(careers));
+speciesList = Object.values(species)
 //merged = {...careers, ...careers};
 
 function updateSelect(selectId, item) {
@@ -41,20 +41,16 @@ function setSpecies(name) {
     return;
   } 
 
+  cur = species[name];
+  console.log(cur);
+  document.getElementById("inputHabitat").placeholder = cur.habitat;
+  document.getElementById("inputSenses").placeholder = cur.senses;
+  document.getElementById("inputDiet").placeholder = cur.diet;
+  document.getElementById("inputWeapons").placeholder = cur.weapons;
+  document.getElementById("inputCycle").placeholder = cur.cycle;
 
-  for (ii = 0; ii < species.length; ii++) {
-    cur = species[ii];
-    if(cur.name == name) {
-      document.getElementById("inputHabitat").placeholder = cur.habitat;
-      document.getElementById("inputSenses").placeholder = cur.senses;
-      document.getElementById("inputDiet").placeholder = cur.diet;
-      document.getElementById("inputWeapons").placeholder = cur.weapons;
-      document.getElementById("inputCycle").placeholder = cur.cycle;
-
-      for(jj = 0; jj < cur.skills.length; jj++) {
-        setSkillSpeciesDice(cur.skills[jj], speciesDice);
-      }
-    }
+  for(jj = 0; jj < cur.skills.length; jj++) {
+    setSkillSpeciesDice(cur.skills[jj], speciesDice);
   }
 }
 
@@ -1022,7 +1018,7 @@ function clearSkillsTable() {
 
 <script>
 
-addOptionsFromList("selectSpecies", species);
+addOptionsFromList("selectSpecies", speciesList);
 addOptionsFromList("selectCareer", careersList);
 
 </script>

@@ -1,5 +1,5 @@
-species = [
-    {
+species = {
+    "Rabbit": {
         "name": "Rabbit",
         "description": "TODO: Rabbit Description",
         "habitat": "Plains",
@@ -10,7 +10,7 @@ species = [
         "skills": ["Jumping", "Digging", "Stealth"],
         "gifts": ["Fast Jumper", "Coward", "Keen Ears"]
     },
-    {
+    "Mouse":{
         "name": "Mouse",
         "description": "TODO: Mouse Description",
         "habitat": "Plains",
@@ -21,7 +21,7 @@ species = [
         "skills": ["Climbing", "Digging", "Stealth"],
         "gifts": ["Contortionist", "Coward", "Keen Ears"]
     },
-    {
+    "Otter": {
         "name": "Otter",
         "description": "TODO: Otter Description",
         "habitat": "Plains",
@@ -32,7 +32,7 @@ species = [
         "skills": ["Dodge", "Swimming", "Stealth"],
         "gifts": ["Contortionist", "Coward", "Keen Ears"]
     },
-    {
+    "Raven": {
         "name": "Raven",
         "description": "TODO: Raven Description",
         "habitat": "Plains",
@@ -43,6 +43,6 @@ species = [
         "skills": ["Searching", "Supernatural", "Weather Sense"],
         "gifts": ["Flight", "Increased Trait: Speed", "Survival"]
     }
-]
+}
 
 
