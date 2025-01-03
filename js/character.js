@@ -3,6 +3,7 @@ speciesList = Object.values(species)
 giftsList   = Object.values(gifts)
 //merged = {...careers, ...careers};
 
+gHealingQuota = 24;
 
 
 function applyFav(evt) {
@@ -303,5 +304,120 @@ function populateBattleStats() {
 
     var run = bodyNum + speedNum + dash;
     setRun(run);
+}
+
+function setHurt() {
+  var element = document.getElementById("input-hurt");
+  if(element.checked == true) {
+    document.getElementById("input-reeling").checked = true;
+  } else {
+    document.getElementById("input-afraid").checked = false;
+    document.getElementById("input-injured").checked = false;
+    document.getElementById("input-dying").checked = false;
+    document.getElementById("input-dead").checked = false;
+    document.getElementById("input-overkilled").checked = false;
+    setInjured();
+    setOverkilled();
+    setDead();
+  }
+}
+
+function setAfraid() {
+  var element = document.getElementById("input-afraid");
+  if(element.checked == true) {
+    document.getElementById("input-hurt").checked = true;
+    setHurt();
+  } else {
+    document.getElementById("input-injured").checked = false;
+    document.getElementById("input-dying").checked = false;
+    document.getElementById("input-dead").checked = false;
+    document.getElementById("input-overkilled").checked = false;
+    setInjured();
+    setOverkilled();
+    setDead();
+  }
+}
+
+
+
+function setInjured(){
+  var element = document.getElementById("input-injured")
+  var progbar = document.getElementById("progress-healing");
+  var spinner = document.getElementById("spinner-healing");
+
+
+  if(element.checked == true) {
+    document.getElementById("input-afraid").checked = true;
+    setAfraid();
+    progbar.style.width = "0%"
+    gHealingQuota = 0;
+    spinner.hidden = false;
+
+  } else {
+    progbar.style.width = "100%"
+    gHealingQuota = 24;
+    progbar.innerHTML = "(24/24)";
+    spinner.hidden = true;
+    document.getElementById("input-dying").checked = false;
+    document.getElementById("input-dead").checked = false;
+    document.getElementById("input-overkilled").checked = false;
+    setOverkilled();
+    setDead();
+  }
+}
+
+function setDying() {
+  var element = document.getElementById("input-dying");
+  if(element.checked == true) {
+    document.getElementById("input-injured").checked = true;
+    setInjured();
+  } else {
+    document.getElementById("input-dead").checked = false;
+    document.getElementById("input-overkilled").checked = false;
+    setOverkilled();
+    setDead();
+  }
+}
+
+function setDead() {
+  var element = document.getElementById("input-dead");
+  if(element.checked == true) {
+    document.getElementById("input-dying").checked = true;
+    document.getElementById("spinner-dead").hidden = false;
+    setDying();
+  } else {
+    document.getElementById("input-overkilled").checked = false;
+    document.getElementById("spinner-dead").hidden = true;
+    setOverkilled();
+  }
+}
+
+function setOverkilled() {
+  var element = document.getElementById("input-overkilled");
+  if(element.checked == true) {
+    document.getElementById("input-dead").checked = true;
+    document.getElementById("spinner-overkilled").hidden = false;
+    setDead(); 
+  } else {
+    document.getElementById("spinner-overkilled").hidden = true;
+  }
+}
+
+function heal(element) {
+  var progbar = document.getElementById("progress-healing");
+  var spinner = document.getElementById("spinner-healing");
+
+  if(gHealingQuota < 24) {
+    gHealingQuota++
+  }
+
+  percent = (gHealingQuota / 24) * 100;
+
+  progbar.style.width = percent + '%';
+  progbar.innerHTML = "(" + gHealingQuota + "/24)";
+
+  if(gHealingQuota == 24) {
+    spinner.hidden = true;
+  }
 }
 

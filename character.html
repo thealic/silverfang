@@ -831,20 +831,20 @@
               </div>
             </div>
 
-            <div id="battleStatusEffectsRow1" class="row text-start">
+            <div id="battleStatusEffectsRow1" class="prevent-select row text-start">
               <table class="table">
                 <tr>
                   <td style="width: 80px">any hit =</td>
                   <td>
                     <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input pull-right" id="hit">
-                      <label class="form-check-label text-info" for="hit"><b>Reeling</b> (penalty d8; no counters)</label>
+                      <input type="checkbox" class="form-check-input pull-right" id="input-reeling">
+                      <label class="form-check-label text-info" for="input-reeling"><b>Reeling</b> (penalty d8; no counters)</label>
                     </div>
                   </td>
                   <td>
                     <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input pull-right" id="hit">
-                      <label class="form-check-label" for="burdened"><b>Burdened</b> (Dash is zero, limit of d8 to # skills)</label>
+                      <input type="checkbox" class="form-check-input pull-right" id="input-burdened">
+                      <label class="form-check-label" for="input-burdened"><b>Burdened</b> (Dash is zero, limit of d8 to # skills)</label>
                     </div>
                   </td>
                 </tr>
@@ -852,14 +852,14 @@
                   <td style="width: 80px">1 hit =</td>
                   <td>
                     <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input pull-right" id="hit">
-                      <label class="form-check-label text-warning-emphasis" for="hit"><b>Hurt</b> (+1 damage)</label>
+                      <input type="checkbox" class="form-check-input pull-right" id="input-hurt" onchange="setHurt()">
+                      <label class="form-check-label text-warning-emphasis" for="input-hurt"><b>Hurt</b> (+1 damage)</label>
                     </div>
                   </td>
                   <td>
                     <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input pull-right" id="hit">
-                      <label class="form-check-label" for="burdened"><b>Over-Burdened</b> (burdened, can't run, disadvantaged)</label>
+                      <input type="checkbox" class="form-check-input pull-right" id="input-overburdened">
+                      <label class="form-check-label" for="input-overburdened"><b>Over-Burdened</b> (burdened, can't run, disadvantaged)</label>
                     </div>
                   </td>
                 </tr>
@@ -867,14 +867,14 @@
                   <td style="width: 80px">2 hits =</td>
                   <td>
                     <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input pull-right" id="hit">
-                      <label class="form-check-label text-warning" for="hit"><b>Afraid</b> (Cannot attack or rally)</label>
+                      <input type="checkbox" class="form-check-input pull-right" id="input-afraid"onchange="setAfraid()">
+                      <label class="form-check-label text-warning" for="input-afraid"><b>Afraid</b> (Cannot attack or rally)</label>
                     </div>
                   </td>
                   <td>
                     <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input pull-right" id="hit">
-                      <label class="form-check-label" for="burdened"><b>Kockdown</b> (Disadvantaged, can't retreat)</label>
+                      <input type="checkbox" class="form-check-input pull-right" id="input-kockdown">
+                      <label class="form-check-label" for="input-kockdown"><b>Kockdown</b> (Disadvantaged, can't retreat)</label>
                     </div>
                   </td>
                 </tr>
@@ -882,25 +882,29 @@
                   <td style="width: 80px">3 hits =</td>
                   <td>
                     <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input pull-right" id="hit">
-                      <label class="form-check-label text-danger-emphasis" for="hit"><b>Hurt</b> (Cannot attack or rally)</label>
+                      <input type="checkbox" class="form-check-input pull-right" id="input-injured" onchange="setInjured(this)">
+                      <label class="form-check-label text-danger-emphasis" for="input-injured"><b>Injured</b> (Cannot attack or rally)</label>
                     </div>
                   </td>
                   <td>
                     <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input pull-right" id="hit">
-                      <label class="form-check-label" for="burdened"><b>Unconscious</b> (Helpless)</label>
+                      <input type="checkbox" class="form-check-input pull-right" id="input-unconcious">
+                      <label class="form-check-label" for="input-unconcious"><b>Unconscious</b> (Helpless)</label>
                     </div>
                   </td>
                 </tr>
               </table>
 
               <div class="col-3">
-                <p>Healing quota</p>
+                <div class="d-flex justify-content-center">
+                <p>Healing quota </p> <br>
+                  <div id="spinner-healing" class="spinner-border text-danger spinner-border-sm" hidden role="status"></div> 
+                </div>
               </div>
               <div class="col-9">
-                <div class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
-                  <div class="progress-bar bg-danger" style="width: 90%"></div>
+                
+                <div id="" class="progress" role="progressbar" onclick="heal()">
+                  <div id="progress-healing" class="progress-bar bg-danger" style="width: 100%">(24/24)</div>
                 </div>
               </div>
 
@@ -909,14 +913,14 @@
                   <td style="width: 80px">4 hits =</td>
                   <td>
                     <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input pull-right" id="hit">
-                      <label class="form-check-label text-danger" for="hit"><b>Dying</b> (get first aid!)</label>
+                      <input type="checkbox" class="form-check-input pull-right" id="input-dying" onchange="setDying()">
+                      <label class="form-check-label text-danger" for="input-dying"><b>Dying</b> (get first aid!)</label>
                     </div>
                   </td>
                   <td>
                     <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input pull-right" id="hit">
-                      <label class="form-check-label" for="burdened"><b>Sick</b> (reeling causes knockdown)</label>
+                      <input type="checkbox" class="form-check-input pull-right" id="input-sick">
+                      <label class="form-check-label" for="input-sick"><b>Sick</b> (reeling causes knockdown)</label>
                     </div>
                   </td>
                 </tr>
@@ -924,22 +928,25 @@
                   <td style="width: 80px">5 hits =</td>
                   <td>
                     <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input pull-right" id="hit">
-                      <label class="form-check-label" for="hit"><b>Dead</b> (beyond mortal help)</label>
+                      <input type="checkbox" class="form-check-input pull-right" id="input-dead" onchange="setDead()">
+                      <label class="form-check-label" for="input-dead"><b>Dead</b> (beyond mortal help)</label>
                     </div>
                   </td>
                   <td>
+                    <div id="spinner-dead" class="spinner-grow spinner-border-sm text-light" hidden>
                   </td>
                 </tr>
                 <tr>
                   <td style="width: 80px">6 hits =</td>
                   <td>
                     <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input pull-right" id="hit">
-                      <label class="form-check-label" for="hit"><b>Overkilled</b> (allies become afraid)</label>
+                      <input type="checkbox" class="form-check-input pull-right" id="input-overkilled" onchange="setOverkilled()">
+                      <label class="form-check-label" for="input-overkilled"><b>Overkilled</b> (allies become afraid)
+                      </label>
                     </div>
                   </td>
                   <td>
+                    <div id="spinner-overkilled" class="spinner-grow spinner-border-sm text-secondary" hidden>
                   </td>
                 </tr>
               </table>
