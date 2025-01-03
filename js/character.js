@@ -20,7 +20,7 @@ function setCareer(name) {
 
   //TODO:
 
-  let careerDice = document.getElementById("selectTraitCareerDice").value;
+  let careerDice = document.getElementById("select-trait-dice-career").value;
   if( careerDice == "Choose") {
     alert("You must have a Career Dice set");
     document.getElementById("selectCareer").value = "Choose";
@@ -37,7 +37,7 @@ function setCareer(name) {
 function setSpecies(name) {
   clearSkillsTable("species")
 
-  let speciesDice = document.getElementById("selectTraitSpeciesDice").value;
+  let speciesDice = document.getElementById("select-trait-dice-species").value;
   if( speciesDice == "Choose") {
     alert("You must have a species dice set");
     document.getElementById("selectSpecies").value = "Choose species";
@@ -103,5 +103,124 @@ function clearSkillsTable(column) {
     columns = row.children;
     columns[colnumber].innerHTML = "";
   }
+}
+
+function setBattleStats() {
+
+// TODO
+}
+
+function getDice(name, asInt = false) {
+    name = name.toLowerCase();
+    var id;
+
+    switch(name) {
+        case "species":
+            id = "select-trait-dice-species";
+            break;
+        case "career":
+            id = "select-trait-dice-career";
+            break;
+        case "body":
+            id = "select-trait-dice-body";
+            break;
+        case "speed":
+            id = "select-trait-dice-speed";
+            break;
+        case "mind":
+            id = "select-trait-dice-mind";
+            break;
+        case "will":
+            id = "select-trait-dice-will";
+            break;
+        default:
+            console.error("Not a valid dice name");
+            return null;
+    }
+
+    var value = document.getElementById(id).value;
+
+    // Check if value is sane
+    if(value == "Choose") {
+        console.warn("Dice has not been set yet")
+        return null;
+    }
+
+    if(asInt) {
+        var slice = value.slice(1);
+        num = parseInt(slice, 10);
+        return num;
+    }
+
+    return value;
+}
+
+function diceCheck() {
+    // Routine: check the state of all dice. If they're all set - trigger
+    // further events
+    var diceNames = ["species", "career", "body", "speed", "mind", "will"]
+    isComplete = true;
+
+    for (index in diceNames) {
+        var value = getDice(diceNames[index])
+        if(value == null) {
+            isComplete = false;
+            break; 
+        }
+    }
+
+    if(isComplete) {
+        alert("All dice are set!");
+        populateBattleStats();
+    }
+}
+
+function setInitiative(str) {
+    var element = document.getElementById("input-battle-initiative");
+    element.value = str;
+}
+
+function setSprint(num) {
+    var element = document.getElementById("input-battle-sprint");
+    element.value = num;
+}
+
+function setDash(num) {
+    var element = document.getElementById("input-battle-dash");
+    element.value = num;
+}
+
+function setRun(num) {
+    var element = document.getElementById("input-battle-run");
+    element.value = num;
+}
+
+function populateBattleStats() {
+    // This function will populate all of the battle statistics
+    var strideElement = document.getElementById("input-battle-stride");
+    var dashElement = document.getElementById("input-battle-dash");
+    var sprintElement = document.getElementById("input-battle-sprint");
+    var runElement = document.getElementById("input-battle-run");
+
+
+    var mindDice = getDice("mind")
+    var speedDice = getDice("speed");
+    var speedNum = getDice("speed", true);
+    var bodyNum = getDice("body", true);
+
+    var inistr = speedDice + ", " + mindDice;
+    setInitiative(inistr);
+    setSprint(speedNum);
+
+    var dash = speedNum / 2; // Will be fine because all dice values are even 
+
+    if(bodyNum > speedNum) {
+        dash++;
+    }
+
+    setDash(dash);
+
+    var run = bodyNum + speedNum + dash;
+    setRun(run);
 }
 

@@ -309,6 +309,13 @@
             <td></td>
             <td></td>
           </tr>
+          <tr>
+            <td>Combat Save</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
         </tbody>
       </table>
 
@@ -423,7 +430,7 @@
 
       <div class="input-group mb-3">
         <button class="btn btn-outline-secondary" type="button">Species Dice</button>
-        <select class="form-select" id="selectTraitSpeciesDice">
+        <select class="form-select" id="select-trait-dice-species" onchange="diceCheck()">
           <option selected>Choose</option>
           <option value="d4">D4</option>
           <option value="d6">D6</option>
@@ -433,7 +440,7 @@
         </select>
 
         <button class="btn btn-outline-secondary" type="button">Career Dice</button>
-        <select class="form-select" id="selectTraitCareerDice">
+        <select class="form-select" id="select-trait-dice-career" onchange="diceCheck()">
           <option selected>Choose</option>
           <option value="d4">D4</option>
           <option value="d6">D6</option>
@@ -443,46 +450,46 @@
         </select>
 
         <button class="btn btn-outline-secondary" type="button">Body Dice</button>
-        <select class="form-select" id="traitDiceSpecies">
+        <select class="form-select" id="select-trait-dice-body" onchange="diceCheck()">
           <option selected>Choose</option>
-          <option value="1">D4</option>
-          <option value="2">D6</option>
-          <option value="3">D8</option>
-          <option value="3">D10</option>
-          <option value="3">D12</option>
+          <option value="d4">d4</option>
+          <option value="d6">d6</option>
+          <option value="d8">d8</option>
+          <option value="d10">d10</option>
+          <option value="d12">d12</option>
         </select>
 
       </div>
 
       <div class="input-group mb-3">
         <button class="btn btn-outline-secondary" type="button">Speed Dice</button>
-        <select class="form-select" id="traitDiceSpecies">
+        <select class="form-select" id="select-trait-dice-speed" onchange="diceCheck()">
           <option selected>Choose</option>
-          <option value="1">D4</option>
-          <option value="2">D6</option>
-          <option value="3">D8</option>
-          <option value="3">D10</option>
-          <option value="3">D12</option>
+          <option value="d4">d4</option>
+          <option value="d6">d6</option>
+          <option value="d8">d8</option>
+          <option value="d10">d10</option>
+          <option value="d12">d12</option>
         </select>
 
         <button class="btn btn-outline-secondary" type="button">Mind Dice</button>
-        <select class="form-select" id="traitDiceSpecies">
+        <select class="form-select" id="select-trait-dice-mind" onchange="diceCheck()">
           <option selected>Choose</option>
-          <option value="1">D4</option>
-          <option value="2">D6</option>
-          <option value="3">D8</option>
-          <option value="3">D10</option>
-          <option value="3">D12</option>
+          <option value="d4">d4</option>
+          <option value="d6">d6</option>
+          <option value="d8">d8</option>
+          <option value="d10">d10</option>
+          <option value="d12">d12</option>
         </select>
 
         <button class="btn btn-outline-secondary" type="button">Will Dice</button>
-        <select class="form-select" id="traitDiceSpecies">
+        <select class="form-select" id="select-trait-dice-will" onchange="diceCheck()">
           <option selected>Choose</option>
-          <option value="1">D4</option>
-          <option value="2">D6</option>
-          <option value="3">D8</option>
-          <option value="3">D10</option>
-          <option value="3">D12</option>
+          <option value="d4">d4</option>
+          <option value="d6">d6</option>
+          <option value="d8">d8</option>
+          <option value="d10">d10</option>
+          <option value="d12">d12</option>
         </select>
 
       </div>
@@ -636,7 +643,7 @@
                 <div class="col-8">
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Initiative</span>
-                    <input disabled type="text" class="form-control">
+                    <input id="input-battle-initiative" disabled type="text" class="form-control" >
                     <button disabled class="btn btn-outline-secondary" type="button">Speed &amp; Mind Dice</button>
                   </div>
                 </div>
@@ -656,14 +663,14 @@
                 <div class="col-4">
                   <div class="input-group input-group-sm mb-3">
                     <span class="input-group-text">Stride</span>
-                    <input type="text" class="form-control"value="1">
+                    <input id="input-battle-stride" type="text" class="form-control"value="1" >
                     <button disabled class="btn btn-outline-secondary" type="button">(1)</button>
                   </div>
                 </div>
                 <div class="col-8">
                   <div class="input-group input-group-sm mb-3">
                     <span class="input-group-text">Dash</span>
-                    <input disabled type="text" class="form-control"value="0">
+                    <input id="input-battle-dash" disabled type="text" class="form-control" value="0" >
                     <button disabled class="btn btn-outline-secondary" type="button"><sup>1</sup>&frasl;<sub>2</sub> Max Speed, +1 if Body &gt; Speed </button>
                   </div>
                 </div>
@@ -673,14 +680,14 @@
                 <div class="col-4">
                   <div class="input-group input-group-sm mb-3">
                     <span class="input-group-text">Sprint</span>
-                    <input disabled type="text" class="form-control" value="0">
+                    <input id="input-battle-sprint" disabled type="text" class="form-control" value="0">
                     <button disabled class="btn btn-outline-secondary" type="button">Speed die</button>
                   </div>
                 </div>
                 <div class="col-8">
                   <div class="input-group input-group-sm mb-3">
                     <span class="input-group-text">Run</span>
-                    <input disabled type="text" class="form-control"value="0">
+                    <input id="input-battle-run" disabled type="text" class="form-control"value="0">
                     <button disabled class="btn btn-outline-secondary" type="button">(Max Body + Max Speed + Dash)</button>
                   </div>
                 </div>
