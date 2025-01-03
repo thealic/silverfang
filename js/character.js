@@ -5,9 +5,10 @@ giftsList   = Object.values(gifts)
 
 
 
-function applyFav() {
+function applyFav(evt) {
+  evt.preventDefault();
   if(this.innerHTML == "") {
-    this.innerHTML = "⭐";
+    this.innerHTML = "★";
   } else {
     this.innerHTML = "";
   }
@@ -15,7 +16,6 @@ function applyFav() {
 
 
 function applyMark(cell) {
-  console.log("Hello World");
   if(this.innerHTML == "") {
     this.innerHTML = "1";
   } else {
@@ -24,6 +24,13 @@ function applyMark(cell) {
 
   var markDice = this.nextSibling.nextSibling.nextSibling.nextSibling;
   markDice.innerHTML = marksToDice(this.innerHTML);
+}
+
+function resetMark(evt) {
+  evt.preventDefault();
+  this.innerHTML = "";
+  var markDice = this.nextSibling.nextSibling.nextSibling.nextSibling;
+  markDice.innerHTML = "";
 }
 
 
@@ -47,7 +54,34 @@ function marksToDice(num) {
   }
 
   return result;
+}
 
+function highlightBadge(evt){
+  evt.preventDefault();
+  var flip = false;
+
+  if(this.classList.contains("text-bg-secondary")) {
+    flip = true;
+  }
+
+  this.className = "";
+  this.classList.remove();
+  this.classList.add("badge");
+  this.classList.add("prevent-select");
+  if(flip) {
+    this.classList.add("text-bg-info");
+  } else {
+    this.classList.add("text-bg-secondary");
+  }
+}
+
+function unhighlightBadge(evt){
+  evt.preventDefault();
+  this.className = "";
+  this.classList.remove();
+  this.classList.add("badge");
+  this.classList.add("text-bg-secondary");
+  this.classList.add("prevent-select");
 }
 
 function updateSelect(selectId, item) {

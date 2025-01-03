@@ -9,12 +9,20 @@
 </head>
 
 <body>
-
 <!--Dataset Imports-->
 <script src="data/species.json"></script>
 <script src="data/careers.json"></script>
 <script src="data/gifts.json"></script>
 <script src="js/character.js"></script>
+
+<style type="text/css" media="all">
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+</style>
+
 
 <!--Navbar-->
 <div class="container">
@@ -282,6 +290,13 @@
         </thead>
         <tbody>
           <tr>
+            <td><button class="btn btn-secondary"type="button">+</button></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
             <td>Personality</td>
             <td></td>
             <td></td>
@@ -325,7 +340,7 @@
           <hr>
           <p>Spend 4 to buy +1 Skill Mark. Spend 10 to buy a new Gift</p>
         </div>
-        <div class="col-8 align-self-start">
+        <div class="col-8 align-self-start prevent-select">
           <span class="badge text-bg-secondary">*</span>
           <span class="badge text-bg-secondary">*</span>
           <span class="badge text-bg-secondary">*</span>
@@ -968,14 +983,34 @@ addOptionsFromList("selectCareer", careersList);
 //var favCells = document.getElementsByClassName("td-fav")
 var markCells = document.getElementsByClassName("td-mark");
 var favCells = document.getElementsByClassName("td-fav");
+var badges = document.getElementsByClassName("badge");
 
 for(var ii = 0; ii < markCells.length; ii++) {
   markCells[ii].addEventListener("click", applyMark);
 }
 
+for(var ii = 0; ii < markCells.length; ii++) {
+  markCells[ii].addEventListener("contextmenu", resetMark );
+
+}
+
 for(var ii = 0; ii < favCells.length; ii++) {
   favCells[ii].addEventListener("click", applyFav);
 }
+
+for(var ii = 0; ii < favCells.length; ii++) {
+  favCells[ii].addEventListener("contextmenu", applyFav);
+}
+
+for(var ii = 0; ii < badges.length; ii++) {
+  badges[ii].addEventListener("click", highlightBadge);
+  badges[ii].classList.add("prevent-select");
+}
+
+for(var ii = 0; ii < badges.length; ii++) {
+  badges[ii].addEventListener("contextmenu", unhighlightBadge);
+}
+
 </script>
 
 </body>
