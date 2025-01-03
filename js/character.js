@@ -3,6 +3,53 @@ speciesList = Object.values(species)
 giftsList   = Object.values(gifts)
 //merged = {...careers, ...careers};
 
+
+
+function applyFav() {
+  if(this.innerHTML == "") {
+    this.innerHTML = "⭐";
+  } else {
+    this.innerHTML = "";
+  }
+}
+
+
+function applyMark(cell) {
+  console.log("Hello World");
+  if(this.innerHTML == "") {
+    this.innerHTML = "1";
+  } else {
+    this.innerHTML++;
+  }
+
+  var markDice = this.nextSibling.nextSibling.nextSibling.nextSibling;
+  markDice.innerHTML = marksToDice(this.innerHTML);
+}
+
+
+function marksToDice(num) {
+  // Converts an integer of marks to a string of dice values
+  let result = "";
+
+  let ind = 2 + (2 * num)
+  let d12s = Math.floor(ind / 12);
+  let rem = ind % 12;
+
+  for(var ii = 0; ii < d12s; ii++) {
+    result += "d12";
+    if(rem != 0 || d12s > 1) {
+      result += ", ";
+    }
+  }
+    
+  if(rem != 0) {
+    result += 'd' + rem;
+  }
+
+  return result;
+
+}
+
 function updateSelect(selectId, item) {
   document.getElementById(selectId).innerHTML = item.innerHTML;
 }
