@@ -282,7 +282,7 @@
         </tbody>
       </table>
       <h2>Gifts</h2>
-      <table class="table">
+      <table id="table-gifts" class="table">
         <thead>
           <tr>
             <th scope="col">Gift Name</th>
@@ -294,42 +294,57 @@
         </thead>
         <tbody>
           <tr>
-            <td><button class="btn btn-secondary"type="button">+</button></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
             <td>Personality</td>
+            <td>
+              <abbr title="Use for a bonus D12 on one appropriate role.">...</abbr>
+            </td>
             <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><input type="checkbox" class="form-check-input"></td>
+            <td>Respite</td>
           </tr>
           <tr>
             <td>Languages</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>
+              <abbr title="Languages - (Default is the most common language of Calabria)">...</abbr>
+            </td>
+            <td>
+              <div class="input-group input-group-sm mb-3">
+                <textarea class="form-control" rows="1">Calabrese</textarea>
+              </div>
+            </td>
+            <td>
+              <input type="checkbox" class="form-check-input" disabled>
+            </td>
+            <td>--</td>
           </tr>
           <tr>
             <td>Local Knowledge</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>
+              <abbr title="Bonus D12 for knowledge roles">...</abbr>
+            </td>
+            <td>
+              <div class="input-group input-group-sm mb-3">
+                <textarea class="form-control" rows="1"></textarea>
+              </div>
+            </td>
+            <td>
+              <input type="checkbox" class="form-check-input" disabled>
+            </td>
+            <td>--</td>
           </tr>
           <tr>
             <td>Combat Save</td>
+            <td>
+              <abbr title="(Use to negate Dying or Dead from failed Defense)">...</abbr>
+            </td>
             <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>
+              <input type="checkbox" class="form-check-input">
+            </td>
+            <td>Respite</td>
           </tr>
-          <tr>
-            <td>Combat Save</td>
+          <tr id="table-row-add-gift">
+            <td><button class="btn btn-secondary"type="button">+</button></td>
             <td></td>
             <td></td>
             <td></td>

@@ -120,12 +120,15 @@ function setSpecies(name) {
   clearSkillsTable("species")
 
   let speciesDice = document.getElementById("select-trait-dice-species").value;
+  
+  //Ensure a species dice has aleady been set.
   if( speciesDice == "Choose") {
     alert("You must have a species dice set");
     document.getElementById("selectSpecies").value = "Choose species";
     return;
   } 
 
+  // Set values on sheet
   cur = species[name];
   console.log(cur);
   document.getElementById("inputHabitat").placeholder = cur.habitat;
@@ -134,10 +137,65 @@ function setSpecies(name) {
   document.getElementById("inputWeapons").placeholder = cur.weapons;
   document.getElementById("inputCycle").placeholder = cur.cycle;
 
+  //Populate skills table
   for(jj = 0; jj < cur.skills.length; jj++) {
     setSkillSpeciesDice(cur.skills[jj], speciesDice);
   }
+
+  //Populate Gifts
+
+  for(var ii = 0; ii < cur.gifts.length; ii++){
+    var gift = gifts[cur.gifts[ii]];
+    if(gift == null){
+      console.warn("Gift not found in DB!");
+    } else {
+      addGift(gift);
+    }
+
+
+  }
+  
+
+
 }
+
+function addGift(gift) {
+  let table = document.getElementById("table-gifts");
+  console.log(gift);
+
+  var targetIndex = table.rows.length - 1;
+  var newRow = table.insertRow(targetIndex);
+
+  var cell1 = newRow.insertCell(0);
+  var celltext = document.createTextNode(gift.name);
+  cell1.appendChild(celltext);
+
+  var cell2 = newRow.insertCell(1);
+  var brief = document.createElement("abbr");
+  brief.setAttribute("title", gift.description);
+  brief.innerText = "...";
+  cell2.appendChild(brief);
+
+  var cell3 = newRow.insertCell(2);
+  celltext = document.createTextNode(gift.tags);
+  cell3.appendChild(celltext);
+
+  var cell4 = newRow.insertCell(3);
+  checkbox = document.createElement("input");
+  checkbox.setAttribute("type", "checkbox");
+  checkbox.classList.add("form-check-input");
+  cell4.appendChild(checkbox);
+
+  var cell5 = newRow.insertCell(4);
+  celltext = document.createTextNode(gift.refresh);
+  cell5.appendChild(celltext);
+}
+
+function clearGifts() {
+
+}
+
+
 
 function setSkillCareerDice(skill, dice) {
   //Iterate through the skills table
